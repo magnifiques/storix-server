@@ -4,6 +4,9 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+
+import dashboardRoutes from "../routes/dashboardRoutes";
+import productRoutes from "../routes/productRoutes";
 /* ROUTE Imports */
 
 /* Configuration */
@@ -25,7 +28,11 @@ app.use(cors());
 /* Server */
 const port = process.env.PORT || 5000;
 
-app.get("/hello", (req, res) => {
+app.use("/dashboard", dashboardRoutes);
+
+app.use("/products", productRoutes);
+
+app.get("/hello", (_, res) => {
   res.send("Hello!!");
 });
 
