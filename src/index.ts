@@ -8,6 +8,7 @@ import morgan from "morgan";
 import dashboardRoutes from "../routes/dashboardRoutes";
 import productRoutes from "../routes/productRoutes";
 /* ROUTE Imports */
+import userRoutes from "../routes/userRoutes";
 
 /* Configuration */
 dotenv.config();
@@ -31,6 +32,8 @@ const port = process.env.PORT || 5000;
 app.use("/dashboard", dashboardRoutes);
 
 app.use("/products", productRoutes);
+
+app.use("/users", userRoutes);
 
 app.get("/hello", (_, res) => {
   res.send("Hello!!");
